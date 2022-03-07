@@ -15,6 +15,13 @@ P4_CARD_COORDS = [(699, 491), (699, 377) , (699, 263) , (699, 149) , (699, 35)]
 
 PILE_CARD_COORDS = [(237, 179), (320, 179), (402, 179), (483, 179), (237, 298), (320, 298), (402, 298), (483, 298), (237, 421), (320, 421), (402, 421), (483, 421)]
 
+Title Buttons:
+Play - (0, 30)
+Tutorial/Singleplayer - (0, 218)
+Options/Multiplayer - (0, 324)
+Credits - (0, 511)
+Exit/Back - (0, 616)
+
 v Outdated Coords (Don't use) v
 (Left)
 Player 1 Card 1: 195, 601
