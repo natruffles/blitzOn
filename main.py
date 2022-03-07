@@ -4,6 +4,7 @@ from constants import *
 from gameBoard import GameBoard
 from player import Player
 from ai import AI
+from setupScreen import SetupScreen
 
 ##################################################################################
 pygame.init()
@@ -65,7 +66,7 @@ def main():
     board = [GameBoard(GAME_BOARD_IMAGES[0], SCREEN_WIDTH, SCREEN_HEIGHT),
              GameBoard(GAME_BOARD_IMAGES[1], SCREEN_WIDTH, SCREEN_HEIGHT)]
 
-    screen = pygame.display.set_mode((board[darkOrLightState].screenWidth, board[darkOrLightState].screenHeight))
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     pygame.display.set_caption("BlitzOn!")
 
