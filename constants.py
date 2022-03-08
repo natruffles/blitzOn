@@ -3,7 +3,7 @@ SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 AI_WAIT_TIME = 1500
 
-GAME_BOARD_IMAGES = ["board_v3.png", "board_v3_b.png"]
+GAME_BOARD_IMAGES = ["board_light.png", "board_v3_b.png"]
 TITLE_SCREEN = "title_screen.png"
 END_SCREENS = ["win_notification.png", "lose_notification.png"]
 PLAY_BUTTON = "play_button_a.png"
