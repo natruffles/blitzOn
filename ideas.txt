@@ -1,0 +1,20 @@
+- card borders should be dark in dark mode
+- card you picked up should transparent when you select it
+- show potential legal moves after selecting a card
+- animations showing ai moving a card into the middle pile 
+- exit button during match and on the title screen
+- instructions screen
+- multiplayer (difficult)
+- border shows up on the card you picked up, maybe also on potential legal spots to move the card
+- cripple ai and make it actually take actual time to place card
+- end screen appear over the game board 
+- ai randomly picks a spot from the middle pile
+- 2-4 player choice
+- improve dark mode further
+- click and drag AND toggle select both as options
+- chat window but also give the ai dumb premade lines to say at random
+- ambient noises like birds and wind blowing to make the game feel outdoors and sunny
+- randomized doodles and or doodles change in dark mode
+- maybe dark mode has blacklight doodles?
+- screen transitions
+- red marker circle around selected buttons on paper
