@@ -1,5 +1,6 @@
 from card import Card
 import random
+import pygame
 
 class Player():
     def __init__(self, playerNum):
@@ -18,6 +19,15 @@ class Player():
         # B1, B2, B3, B4, B5, B6, B7, B8, B9, B10,
         # Y1, Y2, Y3, Y4, Y5, Y6, Y7, Y8, Y9, Y10]
         self.playerNum = playerNum
+        if playerNum == 1:
+            self.rotationDirection = 0
+        elif playerNum == 2:
+            self.rotationDirection = 180
+        elif playerNum == 3:
+            self.rotationDirection = 270
+        elif playerNum == 4:
+            self.rotationDirection = 90
+
         self.blitzPile = []  # List of 10 cards
         self.stacking1 = []
         self.stacking2 = []
@@ -30,16 +40,18 @@ class Player():
 
     # self{}, screen{surface}, cardLocations{list of 5 tuples}
     def displayPlayerCards(self, screen, cardLocations):
+        #if the below 5 cards exist, they will be printed to the screen in their designated locations, but only after
+        #they are rotated the correct amount for each player
         if self.placePile:
-            screen.blit(self.placePile[0].image, cardLocations[0])
+            screen.blit(pygame.transform.rotate(self.placePile[0].image, self.rotationDirection), cardLocations[0])
         if self.blitzPile:
-            screen.blit(self.blitzPile[0].image, cardLocations[1])
+            screen.blit(pygame.transform.rotate(self.blitzPile[0].image, self.rotationDirection), cardLocations[1])
         if self.stackingPiles[0]:
-            screen.blit(self.stackingPiles[0][0].image, cardLocations[2])
+            screen.blit(pygame.transform.rotate(self.stackingPiles[0][0].image, self.rotationDirection), cardLocations[2])
         if self.stackingPiles[1]:
-            screen.blit(self.stackingPiles[1][0].image, cardLocations[3])
+            screen.blit(pygame.transform.rotate(self.stackingPiles[1][0].image, self.rotationDirection), cardLocations[3])
         if self.stackingPiles[2]:
-            screen.blit(self.stackingPiles[2][0].image, cardLocations[4])
+            screen.blit(pygame.transform.rotate(self.stackingPiles[2][0].image, self.rotationDirection), cardLocations[4])
 
     # given the index, returns a card object if it is there. Otherwise, dont return anything
     def findSelectedCard(self, cardPosIndex):
