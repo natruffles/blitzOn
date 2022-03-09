@@ -1,8 +1,12 @@
+Finished:
+- add ideas in the list that are completed here
+
 To be completed soon:
 - ai randomly picks a spot from the middle pile
 - home button on the gameplay screen in the bottom right
 - create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
 
+Not currently done:
 - card borders should be dark in dark mode
 - card you picked up should transparent when you select it
 - show potential legal moves after selecting a card
