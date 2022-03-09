@@ -1,14 +1,18 @@
+To be completed soon:
+- ai randomly picks a spot from the middle pile
+- home button on the gameplay screen in the bottom right
+- create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
+
 - card borders should be dark in dark mode
 - card you picked up should transparent when you select it
 - show potential legal moves after selecting a card
 - animations showing ai moving a card into the middle pile 
-- exit button during match and on the title screen
+- exit button on the title screen
 - instructions screen
 - multiplayer (difficult)
 - border shows up on the card you picked up, maybe also on potential legal spots to move the card
 - cripple ai and make it actually take actual time to place card
 - end screen appear over the game board 
-- ai randomly picks a spot from the middle pile
 - 2-4 player choice
 - improve dark mode further
 - click and drag AND toggle select both as options
