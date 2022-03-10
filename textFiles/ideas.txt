@@ -1,8 +1,7 @@
 Finished:
-- add ideas in the list that are completed here
+- ai randomly picks a spot from the middle pile
 
 To be completed soon:
-- ai randomly picks a spot from the middle pile
 - home button on the gameplay screen in the bottom right
 - create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
 
