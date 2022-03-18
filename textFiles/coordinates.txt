@@ -31,48 +31,6 @@ Exit/Back - (0, 616)
 Board Buttons:
 Exit - (1167, 619)
 
-v Outdated Coords (Don't use) v
-(Left)
-Player 1 Card 1: 195, 601
-Player 1 Card 2: 281, 601
-Player 1 Card 3: 364, 601
-Player 1 Card 4: 446, 601
-Player 1 Card 5: 527, 601
-(Right)
-
-(Right)
-Player 2 Card 1: 527, 9
-Player 2 Card 2: 446, 9
-Player 2 Card 3: 364, 9
-Player 2 Card 4: 281, 9
-Player 2 Card 5: 169, 9
-(Left)
-
-(Top)
-Player 3 Card 1: 15, 36
-Player 3 Card 2: 15, 150
-Player 3 Card 3: 15, 264
-Player 3 Card 4: 15, 378
-Player 3 Card 5: 15, 492
-(Bottom)
-
-(Bottom)
-Player 4 Card 1: 700, 492
-Player 4 Card 2: 700, 378
-Player 4 Card 3: 700, 264
-Player 4 Card 4: 700, 150
-Player 4 Card 5: 700, 36
-(Top)
-
-Pile Card 1: 238, 180
-Pile Card 2: 321, 180
-Pile Card 3: 403, 180
-Pile Card 4: 484, 180
-Pile Card 5: 238, 299
-Pile Card 6: 321, 299
-Pile Card 7: 403, 299
-Pile Card 8: 484, 299
-Pile Card 9: 238, 422
-Pile Card 10: 321, 422
-Pile Card 11: 403, 422
-Pile Card 12: 484, 422
+Paper Notifications:
+Coordinate: (818, 316)
+Size: (400, 280)
