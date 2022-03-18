@@ -5,7 +5,7 @@ AI_WAIT_TIME = 1500
 
 GAME_BOARD_IMAGES = ["board_light.png", "board_v3_b.png"]
 TITLE_SCREEN = "images/title_screen.png"
-END_SCREENS = ["win_notification.png", "lose_notification.png"]
+END_SCREENS = ["notification_win.png", "notification_lose.png"]
 READY_BUTTON = "ready_button_a.png"
 READY_BUTTON_CLICKED = "ready_button_b.png"
 
@@ -68,7 +68,7 @@ BUTTON_PRESS_ANIMATION_DELAY = 250
 BLITZ_SCORE_COORDS = [(874,29), (874,87), (874, 145), (874,203)]
 PLAYED_SCORE_COORDS = [(1138, 29), (1138, 87), (1138, 145), (1138, 203)]
 
-END_MESSAGE_COORDS = (840,335)
+END_MESSAGE_COORDS = (818, 316)
 
 CARD_SIZE_X = 74
 CARD_SIZE_Y = 108
