@@ -26,3 +26,5 @@ Not currently done:
 - maybe dark mode has blacklight doodles?
 - screen transitions
 - red marker circle around selected buttons on paper
+- support for multiple resolutions and full screen
+- potential for displaying other players moving cards
