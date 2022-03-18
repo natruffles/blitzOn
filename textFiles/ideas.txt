@@ -9,7 +9,8 @@ Not currently done:
 - card borders should be dark in dark mode
 - card you picked up should transparent when you select it
 - show potential legal moves after selecting a card
-- animations showing ai moving a card into the middle pile 
+- animations showing ai moving a card into the middle pile
+     - another option could be a rectangle that closes in on where the AI will place the card
 - exit button on the title screen
 - instructions screen
 - multiplayer (difficult)

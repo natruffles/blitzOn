@@ -4,16 +4,16 @@ from constants import *
 from gameBoard import GameBoard
 from player import Player
 from ai import AI
+from controls import Controls
+from sounds import Sounds
 from setupScreen import SetupScreen
 
 ##################################################################################
 pygame.init()
-pygame.mixer.init()
-pygame.mixer.music.load("sounds/buttonClick.mp3")
-pygame.mixer.music.set_volume(0.7)
+sound = Sounds()
 font = pygame.font.SysFont("comicsansms", 48)
 
-titleImage = pygame.image.load(os.path.join('images', TITLE_SCREEN))
+titleImage = pygame.image.load(os.path.join(TITLE_SCREEN))
 winImage = pygame.image.load(os.path.join('images', END_SCREENS[0]))
 loseImage = pygame.image.load(os.path.join('images', END_SCREENS[1]))
 playButtonImage = pygame.image.load(os.path.join('images/buttons', PLAY_BUTTON))
@@ -28,39 +28,8 @@ ReadyButtonClickedImage = pygame.image.load(os.path.join('images/buttons', READY
 
 ##################################################################################
 
-
-# Determines whether the players mouse is on one
-# of their cards, will return which card and T/F
-# in a tuple. EX (3, True)
-def hoveringOverACardForPickup(mouseX, mouseY, playerCoords):
-    for i in range(len(playerCoords)):
-        cardX = playerCoords[i][0]
-        cardY = playerCoords[i][1]
-        if mouseX >= cardX and mouseX <= cardX + CARD_SIZE_X and mouseY >= cardY and mouseY <= cardY + CARD_SIZE_Y:
-            return i
-    return -1
-
-
-def hoveringOverACardForPlaceDown(mouseX, mouseY, placeDownCoords):
-    for i in range(len(placeDownCoords)):
-        cardX = placeDownCoords[i][0]
-        cardY = placeDownCoords[i][1]
-        if mouseX >= cardX and mouseX <= cardX + CARD_SIZE_X and mouseY >= cardY and mouseY <= cardY + CARD_SIZE_Y:
-            return i
-    return -1
-
-
-# Checks to see if a button has been pressed
-# Int Int Tuple(2) Tuple(2)
-def hasButtonBeenPressed(mouseX, mouseY, buttonCoords, buttonSize):
-    if mouseX in range(buttonCoords[0], buttonCoords[0] + buttonSize[0]):
-        if mouseY in range(buttonCoords[1], buttonCoords[1] + buttonSize[1]):
-            return True
-    return False
-
-
 def main():
-    ##0 is for light mode, 1 is for dark mode
+    #0 is for light mode, 1 is for dark mode
     darkOrLightState = 0
 
     board = [GameBoard(GAME_BOARD_IMAGES[0], SCREEN_WIDTH, SCREEN_HEIGHT),
@@ -73,6 +42,7 @@ def main():
     player1 = Player(1)
     player1.shuffleDeck()
     player1.createInitialHand(board[darkOrLightState])
+    controls = Controls()
 
     player2 = AI(2)
     player2.shuffleDeck()
@@ -98,7 +68,7 @@ def main():
                 runGame = False
                 pygame.quit()
 
-        clock.tick(30)
+        clock.tick(60)
         screen.fill((0, 0, 0))
         screen.blit(titleImage, (0, 0))
         screen.blit(playButtonImage, PLAY_BUTTON_COORDS)
@@ -108,20 +78,16 @@ def main():
         else:
             screen.blit(lightButtonImage, DARK_LIGHT_BUTTON_COORDS)
 
-        if pygame.mouse.get_pressed(3)[0]:
-            mousePos = pygame.mouse.get_pos()
-            if hasButtonBeenPressed(mousePos[0], mousePos[1], PLAY_BUTTON_COORDS, PLAY_BUTTON_SIZE):
-                pygame.mixer.music.pause()
-                pygame.mixer.music.load("sounds/buttonClick.mp3")
-                pygame.mixer.music.play()
+        if controls.leftButtonClick():
+            mousePos = controls.getMousePos()
+            if controls.mouseInArea(mousePos, PLAY_BUTTON_COORDS, PLAY_BUTTON_SIZE):
+                sound.buttonClick.play()
                 screen.blit(playButtonClickedImage, PLAY_BUTTON_COORDS)
                 pygame.display.update()
                 pygame.time.wait(BUTTON_PRESS_ANIMATION_DELAY)
                 runTitleScreen = False
-            if hasButtonBeenPressed(mousePos[0], mousePos[1], DARK_LIGHT_BUTTON_COORDS, DARK_LIGHT_BUTTON_SIZE):
-                pygame.mixer.music.pause()
-                pygame.mixer.music.load("sounds/buttonClick.mp3")
-                pygame.mixer.music.play()
+            if controls.mouseInArea(mousePos, DARK_LIGHT_BUTTON_COORDS, DARK_LIGHT_BUTTON_SIZE):
+                sound.buttonClick.play()
                 if darkOrLightState == 0:
                     screen.blit(darkButtonClickedImage, DARK_LIGHT_BUTTON_COORDS)
                     pygame.display.update()
@@ -140,7 +106,7 @@ def main():
         pygame.display.update()
 
     while runGame:
-        clock.tick(30)
+        clock.tick(60)
 
         screen.fill((0, 0, 0))
         screen.blit(board[darkOrLightState].boardImage, (0, 0))
@@ -175,9 +141,9 @@ def main():
                 pygame.quit()
 
         # if the mouse is clicked and no card is selected
-        if pygame.mouse.get_pressed(3)[0] and player1.selectedCardIndexOnGameBoard == -1:
-            mousePos = pygame.mouse.get_pos()
-            player1.selectedCardIndexOnGameBoard = hoveringOverACardForPickup(mousePos[0], mousePos[1], P1_CARD_COORDS)
+        if controls.leftButtonClick() and player1.selectedCardIndexOnGameBoard == -1:
+            mousePos = controls.getMousePos()
+            player1.selectedCardIndexOnGameBoard = controls.hoveringOverCard(mousePos, P1_CARD_COORDS)
 
             # if the mouse is on top of a valid card spot (index 0-4)
             if player1.selectedCardIndexOnGameBoard in range(0, 5):
@@ -187,10 +153,8 @@ def main():
                     player1.selectedCard = player1.findSelectedCard(player1.selectedCardIndexOnGameBoard)
                     player1.cardSelected = True
             # Checks to see if mouse clicked the flip button
-            elif hasButtonBeenPressed(mousePos[0], mousePos[1], READY_BUTTON_COORDS, READY_BUTTON_SIZE):
-                pygame.mixer.music.pause()
-                pygame.mixer.music.load("sounds/buttonClick.mp3")
-                pygame.mixer.music.play()
+            elif controls.mouseInArea(mousePos, READY_BUTTON_COORDS, READY_BUTTON_SIZE):
+                sound.buttonClick.play()
 
                 screen.blit(ReadyButtonClickedImage, READY_BUTTON_COORDS)
                 pygame.display.update()
@@ -203,11 +167,11 @@ def main():
                 player4.flipPlacePile()
 
         # if the mouse is clicked and a card is selected, it will try to place the card down
-        if pygame.mouse.get_pressed(3)[0] and player1.cardSelected:
-            mousePos = pygame.mouse.get_pos()
-            placeDownPosIndex = hoveringOverACardForPlaceDown(mousePos[0], mousePos[1], PILE_CARD_COORDS)
+        if controls.leftButtonClick() and player1.cardSelected:
+            mousePos = controls.getMousePos()
+            placeDownPosIndex = controls.hoveringOverCard(mousePos, PILE_CARD_COORDS)
             # Returns index of stacking pile you are trying to place on top of
-            stackingPosIndex = hoveringOverACardForPickup(mousePos[0], mousePos[1], P1_CARD_COORDS)
+            stackingPosIndex = controls.hoveringOverCard(mousePos, P1_CARD_COORDS)
 
             # if hovering over cards on the game pile
             if placeDownPosIndex in range(0, 12):
@@ -220,9 +184,7 @@ def main():
                         player1.playResultForPlacePile(True, board[darkOrLightState], placeDownPosIndex)
                     if player1.selectedCardIndexOnGameBoard == 1:
                         player1.playResultForBlitzPile(True, board[darkOrLightState], placeDownPosIndex)
-                    pygame.mixer.music.pause()
-                    pygame.mixer.music.load("sounds/cardPlace.mp3")
-                    pygame.mixer.music.play()
+                    sound.cardPlace.play()
                     player1.selectedCardIndexOnGameBoard = -1
                     player1.cardSelected = False
                     pygame.time.wait(250)
@@ -237,20 +199,18 @@ def main():
                         player1.stackResultForPlacePile(True, stackingPosIndex - 2)
                     if player1.selectedCardIndexOnGameBoard == 1:
                         player1.stackResultForBlitzPile(True, stackingPosIndex - 2)
-                    pygame.mixer.music.pause()
-                    pygame.mixer.music.load("sounds/cardPlace.mp3")
-                    pygame.mixer.music.play()
+                    sound.cardPlace.play()
                     player1.selectedCardIndexOnGameBoard = -1
                     player1.cardSelected = False
                     pygame.time.wait(250)
 
-        if pygame.mouse.get_pressed(3)[2]:
+        if controls.rightButtonClick():
             player1.selectedCardIndexOnGameBoard = -1
             player1.cardSelected = False
 
         # if the card is selected, the card will move around the screen with the cursor
         if player1.cardSelected:
-            mousePos = pygame.mouse.get_pos()
+            mousePos = controls.getMousePos()
             clickedCardPos = (mousePos[0] - 74 / 2, mousePos[1] - 108 / 2)
             screen.blit(player1.selectedCard.image, clickedCardPos)
 
@@ -304,24 +264,17 @@ def main():
             text = font.render(str(len(player1.blitzPile)), True, (0, 0, 0))
             screen.blit(text, BLITZ_SCORE_COORDS[0])
             pygame.display.update()
-            pygame.mixer.music.pause()
-            pygame.mixer.music.load("sounds/tada.mp3")
-            pygame.mixer.music.play()
+            sound.win.play()
             pygame.time.wait(10000)
             runGame = True
             pygame.quit()
         else:
             screen.blit(loseImage, END_MESSAGE_COORDS)
             pygame.display.update()
-            pygame.mixer.music.pause()
-            pygame.mixer.music.load("sounds/loss.mp3")
-            pygame.mixer.music.play()
+            sound.lose.play()
             pygame.time.wait(10000)
             runGame = True
             pygame.quit()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
 
 
 main()
