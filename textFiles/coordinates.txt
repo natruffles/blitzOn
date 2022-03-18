@@ -6,6 +6,12 @@
 # Middle Pile cards are left to right, top to bottom
 # Card Size: 74 x 108
 
+# Title Screen Button Size
+Big Buttons(Play and Options):
+547x183
+
+Thin Buttons(The Rest):
+474x99
 
 v Fixed Coords v
 P1_CARD_COORDS = [(195, 601), (280, 601) , (363, 601) , (445, 601) , (527, 601)]
@@ -15,7 +21,7 @@ P4_CARD_COORDS = [(665, 475), (665, 393) , (665, 311) , (665, 229) , (665, 147)]
 
 PILE_CARD_COORDS = [(237, 179), (320, 179), (402, 179), (483, 179), (237, 298), (320, 298), (402, 298), (483, 298), (237, 421), (320, 421), (402, 421), (483, 421)]
 
-Title Buttons:
+Title Buttons: 
 Play - (0, 30)
 Tutorial/Singleplayer - (0, 218)
 Options/Multiplayer - (0, 324)
