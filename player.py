@@ -76,18 +76,12 @@ class Player():
         self.stackingPiles[1].append(self.deck.pop(0))
         self.stackingPiles[2].append(self.deck.pop(0))
 
-    # places 3 cards in the placePile
-    def placeCardsInPile(self):
-        for x in range(3):
-            self.placePile.insert(0, (self.deck.pop(0)))
-
     # returns true if the card attempted to stack is opposite gender and descending
     # number from the stack pile
     def stackAttempt(self, cardToStack, cardToBePlacedOn):
         if cardToBePlacedOn.gender != (cardToStack.gender):
             if cardToBePlacedOn.number == (cardToStack.number - 1):
                 return True
-
         return False
 
     def stackResultForStackPile(self, condition, grabbingPileIndex, placingPileIndex):

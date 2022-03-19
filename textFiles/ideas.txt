@@ -1,9 +1,10 @@
 Finished:
 - ai randomly picks a spot from the middle pile
+- create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
 
 To be completed soon:
 - home button on the gameplay screen in the bottom right
-- create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
+- cripple ai and make it actually take actual time to place card
 
 Not currently done:
 - card borders should be dark in dark mode
@@ -15,7 +16,6 @@ Not currently done:
 - instructions screen
 - multiplayer (difficult)
 - border shows up on the card you picked up, maybe also on potential legal spots to move the card
-- cripple ai and make it actually take actual time to place card
 - end screen appear over the game board 
 - 2-4 player choice
 - improve dark mode further
