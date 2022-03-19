@@ -11,7 +11,6 @@ from setupScreen import SetupScreen
 ##################################################################################
 pygame.init()
 sound = Sounds()
-font = pygame.font.SysFont("comicsansms", 48)
 
 titleImage = pygame.image.load(os.path.join(TITLE_SCREEN))
 winImage = pygame.image.load(os.path.join('images', END_SCREENS[0]))
@@ -69,7 +68,6 @@ def main():
                 pygame.quit()
 
         clock.tick(60)
-        screen.fill((0, 0, 0))
         screen.blit(titleImage, (0, 0))
         screen.blit(playButtonImage, PLAY_BUTTON_COORDS)
 
@@ -117,23 +115,10 @@ def main():
         player4.displayPlayerCards(screen, P4_CARD_COORDS)
         board[darkOrLightState].displayCardPiles(screen, PILE_CARD_COORDS)
 
-        text = font.render(str(len(player1.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, BLITZ_SCORE_COORDS[0])
-        text = font.render(str(len(player2.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, (BLITZ_SCORE_COORDS[1]))
-        text = font.render(str(len(player3.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, (BLITZ_SCORE_COORDS[2]))
-        text = font.render(str(len(player4.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, (BLITZ_SCORE_COORDS[3]))
-
-        text = font.render(str(player1.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[0]))
-        text = font.render(str(player2.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[1]))
-        text = font.render(str(player3.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[2]))
-        text = font.render(str(player4.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[3]))
+        player1.displayScore(screen)
+        player2.displayScore(screen)
+        player3.displayScore(screen)
+        player4.displayScore(screen)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -238,31 +223,17 @@ def main():
         player4.displayPlayerCards(screen, P4_CARD_COORDS)
         board[darkOrLightState].displayCardPiles(screen, PILE_CARD_COORDS)
 
-        text = font.render(str(len(player1.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, BLITZ_SCORE_COORDS[0])
-        text = font.render(str(len(player2.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, (BLITZ_SCORE_COORDS[1]))
-        text = font.render(str(len(player3.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, (BLITZ_SCORE_COORDS[2]))
-        text = font.render(str(len(player4.blitzPile)), True, (0, 0, 0))
-        screen.blit(text, (BLITZ_SCORE_COORDS[3]))
-
-        text = font.render(str(player1.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[0]))
-        text = font.render(str(player2.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[1]))
-        text = font.render(str(player3.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[2]))
-        text = font.render(str(player4.score), True, (0, 0, 0))
-        screen.blit(text, (PLAYED_SCORE_COORDS[3]))
+        player1.displayScore(screen)
+        player2.displayScore(screen)
+        player3.displayScore(screen)
+        player4.displayScore(screen)
 
         if player1.score - len(player1.blitzPile) >= player2.score - len(player2.blitzPile) \
                 and player1.score - len(player1.blitzPile) >= player3.score - len(player3.blitzPile) \
                 and player1.score - len(player1.blitzPile) >= player4.score - len(player4.blitzPile):
 
             screen.blit(winImage, END_MESSAGE_COORDS)
-            text = font.render(str(len(player1.blitzPile)), True, (0, 0, 0))
-            screen.blit(text, BLITZ_SCORE_COORDS[0])
+            player1.displayScore(screen)
             pygame.display.update()
             sound.win.play()
             pygame.time.wait(10000)

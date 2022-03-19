@@ -1,10 +1,12 @@
 Finished:
 - ai randomly picks a spot from the middle pile
 - create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
+- cripple ai and make it actually take actual time to place card
+- randomize timing of AI card placement based on a difficulty level
+- exit button on the title screen
 
 To be completed soon:
 - home button on the gameplay screen in the bottom right
-- cripple ai and make it actually take actual time to place card
 
 Not currently done:
 - card borders should be dark in dark mode
@@ -12,7 +14,6 @@ Not currently done:
 - show potential legal moves after selecting a card
 - animations showing ai moving a card into the middle pile
      - another option could be a rectangle that closes in on where the AI will place the card
-- exit button on the title screen
 - instructions screen
 - multiplayer (difficult)
 - border shows up on the card you picked up, maybe also on potential legal spots to move the card

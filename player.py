@@ -1,10 +1,13 @@
 from card import Card
 import random
 import pygame
+from constants import *
 
 class Player():
+
     def __init__(self, playerNum):
         self.score = 0
+        self.font = pygame.font.SysFont("comicsansms", 48)
         self.deck = []
         for i in range(0, 10):
             self.deck.append(Card("G", i + 1, "F", "green_" + str(i + 1) + ".png", 0, 0))
@@ -168,3 +171,9 @@ class Player():
         else:
             for i in range(3):
                 self.placePile.insert(0, self.deck.pop(0))
+
+    def displayScore(self, screen):
+        text = self.font.render(str(len(self.blitzPile)), True, (0, 0, 0))
+        screen.blit(text, BLITZ_SCORE_COORDS[self.playerNum - 1])
+        text = self.font.render(str(self.score), True, (0, 0, 0))
+        screen.blit(text, (PLAYED_SCORE_COORDS[self.playerNum - 1]))

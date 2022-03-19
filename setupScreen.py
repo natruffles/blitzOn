@@ -46,15 +46,15 @@ class SetupScreen(Controls):
         screen.blit(self.titleImage, (0,0))
 
         #checks each of the 5 buttons
-        for x in range(5):
+        for x in range(len(SETUP_SCREEN_COORDS)):
             if x == buttonHovered:
                 screen.blit(self.buttonHoverImages[x], SETUP_SCREEN_COORDS[x])
             elif x == buttonClicked:
                 screen.blit(self.buttonClickedImages[x], SETUP_SCREEN_COORDS[x])
             else:
                 screen.blit(self.buttonImages[x], SETUP_SCREEN_COORDS[x])
-
         pygame.display.update()
+
 
     #this function displays
     def hoveringOrClickingButtons(self, screen, mousePos, buttonClicked):
@@ -70,7 +70,6 @@ class SetupScreen(Controls):
                 elif buttonClicked:
                     self.displayTitleScreen(screen, -1, x)
                     pygame.time.wait(BUTTON_PRESS_ANIMATION_DELAY)
-                    print(x)
                     return x
         if not hoveringDisplayed:
             self.displayTitleScreen(screen, -1, -1)

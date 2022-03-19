@@ -1,13 +1,16 @@
 # Constants used
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-AI_WAIT_TIME = 1500
+
 
 GAME_BOARD_IMAGES = ["board_light.png", "board_v3_b.png"]
 TITLE_SCREEN = "images/title_screen.png"
 END_SCREENS = ["notification_win.png", "notification_lose.png"]
 READY_BUTTON = "ready_button_a.png"
 READY_BUTTON_CLICKED = "ready_button_b.png"
+BOARD_EXIT_BUTTON = "images/buttons/btn_boardexit_a.png"
+BOARD_EXIT_BUTTON_HOVER = "images/buttons/btn_boardexit_b.png"
+BOARD_EXIT_BUTTON_CLICKED = "images/buttons/btn_boardexit_c.png"
 
 #DELETE THIS CHUNK ONCE TITLE SCREEN IS FIXED!
 PLAY_BUTTON = "play_button_a.png"
@@ -32,6 +35,12 @@ OPTIONS_BUTTON_CLICKED = "images/buttons/btn_options_c.png"
 EXIT_BUTTON = "images/buttons/btn_exit_a.png"
 EXIT_BUTTON_HOVER = "images/buttons/btn_exit_b.png"
 EXIT_BUTTON_CLICKED = "images/buttons/btn_exit_c.png"
+SINGLE_BUTTON = "images/buttons/btn_sp_a.png"
+SINGLE_BUTTON_HOVER = "images/buttons/btn_sp_b.png"
+SINGLE_BUTTON_CLICKED = "images/buttons/btn_sp_c.png"
+MULTI_BUTTON = "images/buttons/btn_mp_a.png"
+MULTI_BUTTON_HOVER = "images/buttons/btn_mp_b.png"
+MULTI_BUTTON_CLICKED = "images/buttons/btn_mp_c.png"
 
 
 
@@ -72,3 +81,6 @@ END_MESSAGE_COORDS = (818, 316)
 
 CARD_SIZE_X = 74
 CARD_SIZE_Y = 108
+
+#index is the difficulty level, elements are the min and max of how many milliseconds to place down card
+DIFF_LEVELS = [[0,0], [1000, 2000]]

@@ -27,7 +27,9 @@ while run:
             pygame.quit()
     mousePos = controls.getMousePos()
     buttonClicked = controls.leftButtonClick()
-    startScreen.hoveringOrClickingButtons(screen, mousePos, buttonClicked)
+    indexOfButtonClicked = startScreen.hoveringOrClickingButtons(screen, mousePos, buttonClicked)
+    if indexOfButtonClicked == 4:
+        pygame.quit()
     clock.tick(60)
 
 
