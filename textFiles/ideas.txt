@@ -1,3 +1,21 @@
+Major Features (i.e. has major programming and art):
+Finished:
+-
+
+To be completed soon:
+- animations showing ai moving a card into the middle pile
+     - another option could be a rectangle that closes in on where the AI will place the card
+
+Not currently done:
+- end screen appear over the game board 
+- instructions screen
+- multiplayer (difficult)
+- screen transitions
+- support for multiple resolutions and full screen
+- chat window but also give the ai dumb premade lines to say at random
+
+
+Programming Features/Improvements:
 Finished:
 - ai randomly picks a spot from the middle pile
 - create a "controls" class that handles what happens with mouse input (left click, hold, right click, mouse movement, etc)
@@ -7,25 +25,36 @@ Finished:
 
 To be completed soon:
 - home button on the gameplay screen in the bottom right
+- display pencil drawn logo on empty space on paper on the right during match before win/lose indicator appears there (art complete)
 
 Not currently done:
-- card borders should be dark in dark mode
-- card you picked up should transparent when you select it
+- card you picked up should be transparent when you select it
 - show potential legal moves after selecting a card
-- animations showing ai moving a card into the middle pile
-     - another option could be a rectangle that closes in on where the AI will place the card
-- instructions screen
-- multiplayer (difficult)
 - border shows up on the card you picked up, maybe also on potential legal spots to move the card
-- end screen appear over the game board 
 - 2-4 player choice
-- improve dark mode further
 - click and drag AND toggle select both as options
-- chat window but also give the ai dumb premade lines to say at random
 - ambient noises like birds and wind blowing to make the game feel outdoors and sunny
-- randomized doodles and or doodles change in dark mode
-- maybe dark mode has blacklight doodles?
-- screen transitions
-- red marker circle around selected buttons on paper
-- support for multiple resolutions and full screen
 - potential for displaying other players moving cards
+
+
+Art Updates/Additions:
+Finished:
+-
+
+Not currently done:
+- change board exit button to have a house instead of an X
+- randomized doodles and or doodles change in dark mode
+- maybe dark mode has different blacklight doodles?
+- red marker circle around selected buttons on paper
+- card borders should be dark in dark mode
+- improve dark mode further
+- More defined blitz pile outline
+- Player Numbers on the board
+
+
+Audio Updates/Additions: 
+Finished:
+-
+
+Not currently done:
+- Card place sound
