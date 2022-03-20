@@ -13,6 +13,7 @@ Not currently done:
 - screen transitions
 - support for multiple resolutions and full screen
 - chat window but also give the ai dumb premade lines to say at random
+- Blitz! button that appears under the blitz pile once you empty it that ends the game
 
 
 Programming Features/Improvements:
